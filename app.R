@@ -1,4 +1,6 @@
 
+source("global.R")
+
 ui <- fluidPage(
   
   # Application title
@@ -72,8 +74,8 @@ server <- function(input, output, session) {
   })
   
   observeEvent(rv$dfCurrencies, {
-    chcs <- dfPairs$pair_id
-    names(chcs) <- dfPairs$label
+    chcs <- rv$dfPairs$pair_id
+    names(chcs) <- rv$dfPairs$label
     updateSelectInput(session = session, inputId = "siCurrencyPair", choices = chcs, selected = 26)
   })
   
